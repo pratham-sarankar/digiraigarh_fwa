@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1044204123727",
+    "project_id": "digiraigarh",
+    "storage_bucket": "digiraigarh.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044204123727:android:fd38596939e9d27e6f5c3a",
+        "android_client_info": {
+          "package_name": "fwa.digiraigarh.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1l2rHli3gUvyev_Klvxt9IYUkBp7-mx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044204123727:android:d630062647e40ee26f5c3a",
+        "android_client_info": {
+          "package_name": "gms.digiraigarh.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1l2rHli3gUvyev_Klvxt9IYUkBp7-mx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
