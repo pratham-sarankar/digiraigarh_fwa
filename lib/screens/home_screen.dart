@@ -6,6 +6,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _requestPermissions();
     _checkConnectivity();
     _connectivitySubscription =
         Connectivity().onConnectivityChanged.listen(_updateConnectionStatus);
@@ -37,6 +39,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _checkConnectivity() async {
     final result = await Connectivity().checkConnectivity();
     _updateConnectionStatus(result);
+  }
+
+  Future<void> _requestPermissions() async {
+    await Permission.location.request();
   }
 
   void _updateConnectionStatus(List<ConnectivityResult> result) {
@@ -84,9 +90,14 @@ class _HomeScreenState extends State<HomeScreen> {
             allowsAirPlayForMediaPlayback: true,
             allowsBackForwardNavigationGestures: true,
             databaseEnabled: true,
+            geolocationEnabled: true,
           ),
           onWebViewCreated: (controller) {
             _webViewController = controller;
+          },
+          onGeolocationPermissionsShowPrompt: (controller, origin) async {
+            return GeolocationPermissionShowPromptResponse(
+                origin: origin, allow: true, retain: true);
           },
           onDownloadStartRequest: (controller, downloadStartRequest) async {
             await launchUrlString(
