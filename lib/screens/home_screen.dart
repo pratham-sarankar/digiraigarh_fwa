@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final String _initialUrl = 'https://sample-files.com/documents/pdf/';
+  final String _initialUrl = 'https://www.digiraigarh.in';
   bool _isConnected = true;
   late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
   InAppWebViewController? _webViewController;
